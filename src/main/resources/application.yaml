@@ -1,3 +1,44 @@
+server:
+  servlet:
+    context-path: /agendou/api
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info
+  endpoint:
+    health:
+      show-details: always
+
 spring:
+  flyway:
+    locations: classpath:db/migration
+    enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: update
   application:
     name: agendou-api
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${DATASOURCE_URL:jdbc:postgresql://localhost:5432/agendoudb?currentSchema=agendou}
+    username: ${DATASOURCE_USER:postgres}
+    password: ${DATASOURCE_PASS:postgres}
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      poolName: SpringBootJPAHikariCP
+      minimumIdle: 15
+      maximumPoolSize: 50
+      connectionTimeout: 30000
+      idleTimeout: 30000
+      maxLifetime: 1000000
+
+logging:
+  level:
+    agendou.agendou_api: ${LOG_LEVEL:DEBUG}
+
+agendou:
+  jwt:
+    expiracao: 43200000
+    chave: m7UoDqT1UjKg0mPVv8WrBpdFjM9iM0Jr9N9Z4VbVXZl4r7y3hwc5v1bOq/MLjW7W9RhtFJvFsBLOdN0bY9VYhw==

@@ -1,0 +1,26 @@
+package com.agendou.agendou_api.usuario.application.service;
+
+import com.agendou.agendou_api.usuario.application.controller.dto.UsuarioRequest;
+import com.agendou.agendou_api.usuario.application.repository.UsuarioRepository;
+import com.agendou.agendou_api.usuario.domain.Usuario;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
+
+
+@Service
+@RequiredArgsConstructor
+@Log4j2
+public class UsuarioApplicationService implements UsuarioService {
+    private final UsuarioRepository usuarioRepository;
+    private final BCryptPasswordEncoder encriptador;
+
+    @Override
+    public void cadastrarUsuario(UsuarioRequest request) {
+        log.info("[start] UsuarioApplicationService - cadastrarUsuario");
+        Usuario usuario = new Usuario(request, encriptador);
+        usuarioRepository.salva(usuario);
+        log.debug("[finish] UsuarioApplicationService - cadastrarUsuario");
+    }
+}

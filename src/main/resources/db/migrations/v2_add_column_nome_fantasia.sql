@@ -1,0 +1,1 @@
+ALTER TABLE usuario ADD COLUMN nome_fantasia VARCHAR(255);
