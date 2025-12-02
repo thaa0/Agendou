@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  postgres_container:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: agendoudb
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data_container:/var/lib/postgresql/data
+
+  agendou:
+    build:
+      dockerfile: Dockerfile
+    image: agendou:latest
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres_container:5432/agendoudb
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+      - APP_PROFILE=dev
+      - HEALTH_URL=http://localhost:8080/actuator/health
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres_container
+
+volumes:
+  postgres_data_container:
