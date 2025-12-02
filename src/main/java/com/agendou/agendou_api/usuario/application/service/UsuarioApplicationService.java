@@ -1,5 +1,7 @@
 package com.agendou.agendou_api.usuario.application.service;
 
+import com.agendou.agendou_api.profissional.application.repository.ProfissionalRepository;
+import com.agendou.agendou_api.profissional.domain.Profissional;
 import com.agendou.agendou_api.usuario.application.controller.dto.UsuarioRequest;
 import com.agendou.agendou_api.usuario.application.repository.UsuarioRepository;
 import com.agendou.agendou_api.usuario.domain.Usuario;
@@ -15,12 +17,15 @@ import org.springframework.stereotype.Service;
 public class UsuarioApplicationService implements UsuarioService {
     private final UsuarioRepository usuarioRepository;
     private final BCryptPasswordEncoder encriptador;
+    private final ProfissionalRepository profissionalRepository;
 
     @Override
     public void cadastrarUsuario(UsuarioRequest request) {
         log.info("[start] UsuarioApplicationService - cadastrarUsuario");
         Usuario usuario = new Usuario(request, encriptador);
+        Profissional profissional = new Profissional(usuario);
         usuarioRepository.salva(usuario);
+        profissionalRepository.salva(profissional);
         log.debug("[finish] UsuarioApplicationService - cadastrarUsuario");
     }
 }
