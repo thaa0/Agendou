@@ -1,4 +1,4 @@
-package com.agendou.agendou_api.auth.config.service;
+package com.agendou.agendou_api.auth.service;
 
 import com.agendou.agendou_api.usuario.domain.Usuario;
 import io.jsonwebtoken.ExpiredJwtException;
@@ -18,9 +18,9 @@ import java.util.Optional;
 @Log4j2
 public class JwtApplicationService implements JwtService {
     @Value("${agendou.jwt.expiracao}")
-    private String expiracao;
+    String expiracao;
     @Value("${agendou.jwt.chave}")
-    private String chave;
+    String chave;
 
     public String gerarToken(Authentication authentication) {
         return gerarToken((Usuario) Objects.requireNonNull(authentication.getPrincipal()));

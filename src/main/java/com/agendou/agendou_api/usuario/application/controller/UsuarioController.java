@@ -1,6 +1,6 @@
 package com.agendou.agendou_api.usuario.application.controller;
 
-import com.agendou.agendou_api.auth.config.service.AuthService;
+import com.agendou.agendou_api.auth.service.AuthService;
 import com.agendou.agendou_api.auth.domain.Token;
 import com.agendou.agendou_api.usuario.application.controller.dto.LoginRequest;
 import com.agendou.agendou_api.usuario.application.controller.dto.UsuarioRequest;

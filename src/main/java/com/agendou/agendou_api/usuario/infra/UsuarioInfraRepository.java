@@ -1,6 +1,5 @@
 package com.agendou.agendou_api.usuario.infra;
 
-
 import com.agendou.agendou_api.core.handler.APIException;
 import com.agendou.agendou_api.usuario.application.repository.UsuarioRepository;
 import com.agendou.agendou_api.usuario.domain.Usuario;
@@ -8,7 +7,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
-
 
 @Repository
 @Log4j2

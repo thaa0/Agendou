@@ -1,8 +1,10 @@
 package com.agendou.agendou_api.usuario.application.controller.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
+@AllArgsConstructor
 public class UsuarioRequest {
     private String nomeCompleto;
     private String nomeFantasia;

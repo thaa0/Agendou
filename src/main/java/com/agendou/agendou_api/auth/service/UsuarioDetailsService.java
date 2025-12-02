@@ -1,4 +1,4 @@
-package com.agendou.agendou_api.auth.config.service;
+package com.agendou.agendou_api.auth.service;
 
 import com.agendou.agendou_api.usuario.application.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;

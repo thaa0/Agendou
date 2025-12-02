@@ -1,4 +1,4 @@
-package com.agendou.agendou_api.auth.config;
+package com.agendou.agendou_api.core.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
