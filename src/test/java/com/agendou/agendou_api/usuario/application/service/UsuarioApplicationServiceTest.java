@@ -1,5 +1,6 @@
 package com.agendou.agendou_api.usuario.application.service;
 
+import com.agendou.agendou_api.profissional.application.repository.ProfissionalRepository;
 import com.agendou.agendou_api.usuario.application.controller.dto.UsuarioRequest;
 import com.agendou.agendou_api.usuario.application.repository.UsuarioRepository;
 import com.agendou.agendou_api.usuario.domain.Usuario;
@@ -20,7 +21,8 @@ class UsuarioApplicationServiceTest {
 
     @Mock
     private UsuarioRepository usuarioRepository;
-
+    @Mock
+    private ProfissionalRepository profissionalRepository;
     @Mock
     private BCryptPasswordEncoder encriptador;
 
