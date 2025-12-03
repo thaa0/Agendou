@@ -3,6 +3,7 @@ package com.agendou.agendou_api.profissional.domain;
 import com.agendou.agendou_api.usuario.domain.Usuario;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
@@ -11,6 +12,7 @@ import java.util.UUID;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
 public class Profissional{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
