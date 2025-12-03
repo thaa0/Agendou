@@ -2,10 +2,15 @@ package com.agendou.agendou_api.profissional.domain;
 
 import com.agendou.agendou_api.usuario.domain.Usuario;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.UUID;
 
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class Profissional{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,6 +21,7 @@ public class Profissional{
     @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario;
 
+    @Setter
     private String descricao;
 
     @OneToOne(mappedBy = "profissional")
