@@ -5,11 +5,9 @@ import com.agendou.agendou_api.profissional.application.service.ConfiguracaoServ
 import com.agendou.agendou_api.usuario.domain.Usuario;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Log4j2
@@ -20,6 +18,7 @@ public class ConfiguracaoProfissionalController {
     private final ConfiguracaoService configuracaoService;
 
     @PostMapping()
+    @ResponseStatus(HttpStatus.OK)
     void configuraPoliticas(@RequestBody ConfiguracaoProfissionalRequest configuracaoProfissionalRequest,
                             @AuthenticationPrincipal Usuario usuario){
         log.info("[start] ConfiguracaoProfissionalController - configuraPoliticas");
