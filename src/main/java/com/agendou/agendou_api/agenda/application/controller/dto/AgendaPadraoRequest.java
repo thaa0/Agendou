@@ -13,6 +13,7 @@ import java.util.UUID;
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @AllArgsConstructor
 @Getter
+@Builder
 public class AgendaPadraoRequest {
     @Min(1)
     @Max(7)
