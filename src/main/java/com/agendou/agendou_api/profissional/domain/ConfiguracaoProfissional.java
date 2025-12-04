@@ -1,5 +1,6 @@
 package com.agendou.agendou_api.profissional.domain;
 
+import com.agendou.agendou_api.profissional.application.controller.dto.ConfiguracaoProfissionalRequest;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -24,4 +25,12 @@ public class ConfiguracaoProfissional {
     private String msgLembreteAtendimento;
     private String msgPosAtendimento;
     private LocalDateTime ultimaAtualizacao;
+
+    public void atualiza(ConfiguracaoProfissionalRequest configuracaoProfissionalRequest, Profissional profissional) {
+        this.profissional = profissional;
+        this.intervaloCancelamentoHoras = configuracaoProfissionalRequest.intervaloCancelamentoHoras();
+        this.msgLembreteAtendimento = configuracaoProfissionalRequest.msgLembreteAtendimento();
+        this.msgPosAtendimento = configuracaoProfissionalRequest.msgPosAtendimento();
+        this.ultimaAtualizacao = LocalDateTime.now();
+    }
 }
