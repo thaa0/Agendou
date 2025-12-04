@@ -5,11 +5,9 @@ import com.agendou.agendou_api.profissional.application.service.ProfissionalServ
 import com.agendou.agendou_api.usuario.domain.Usuario;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Log4j2
@@ -19,6 +17,7 @@ public class ProfissionalController {
     private final ProfissionalService profissionalService;
 
     @PostMapping()
+    @ResponseStatus(HttpStatus.OK)
     void finalizaCadastro(@RequestBody ProfissionalRequest profissionalRequest,
                           @AuthenticationPrincipal Usuario user){
         log.info("[start] ProfissionalController - finalizaCadastro");
