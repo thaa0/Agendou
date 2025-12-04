@@ -1,9 +1,11 @@
 package com.agendou.agendou_api.profissional.domain;
 
+import com.agendou.agendou_api.agenda.domain.AgendaPadrao;
 import com.agendou.agendou_api.usuario.domain.Usuario;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -26,6 +28,9 @@ public class Profissional{
 
     @OneToOne(mappedBy = "profissional")
     private ConfiguracaoProfissional configuracao;
+
+    @OneToMany(mappedBy = "profissional", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<AgendaPadrao> horarios;
 
     public Profissional(Usuario user) {
         this.usuario = user;

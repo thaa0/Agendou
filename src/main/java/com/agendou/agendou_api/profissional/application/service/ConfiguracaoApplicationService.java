@@ -1,6 +1,5 @@
 package com.agendou.agendou_api.profissional.application.service;
 
-import com.agendou.agendou_api.core.handler.APIException;
 import com.agendou.agendou_api.profissional.application.controller.dto.ConfiguracaoProfissionalRequest;
 import com.agendou.agendou_api.profissional.application.repository.ConfiguracaoRepository;
 import com.agendou.agendou_api.profissional.application.repository.ProfissionalRepository;
@@ -8,7 +7,6 @@ import com.agendou.agendou_api.profissional.domain.ConfiguracaoProfissional;
 import com.agendou.agendou_api.profissional.domain.Profissional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
