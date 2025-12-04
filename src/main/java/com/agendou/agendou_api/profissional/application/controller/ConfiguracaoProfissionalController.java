@@ -8,11 +8,13 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController("/v1/configuracao")
+@RestController
 @Log4j2
 @RequiredArgsConstructor
+@RequestMapping("/v1/configuracao")
 public class ConfiguracaoProfissionalController {
 
     private final ConfiguracaoService configuracaoService;
