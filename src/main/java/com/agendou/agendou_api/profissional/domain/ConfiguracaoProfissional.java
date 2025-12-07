@@ -4,6 +4,7 @@ import com.agendou.agendou_api.profissional.application.controller.dto.Configura
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
@@ -12,6 +13,7 @@ import java.util.UUID;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
 public class ConfiguracaoProfissional {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
