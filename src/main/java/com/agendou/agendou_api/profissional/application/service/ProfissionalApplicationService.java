@@ -1,6 +1,7 @@
 package com.agendou.agendou_api.profissional.application.service;
 
 import com.agendou.agendou_api.profissional.application.controller.dto.ProfissionalRequest;
+import com.agendou.agendou_api.profissional.application.controller.dto.ProfissionalResponse;
 import com.agendou.agendou_api.profissional.application.repository.ProfissionalRepository;
 import com.agendou.agendou_api.profissional.domain.Profissional;
 import lombok.RequiredArgsConstructor;
@@ -22,6 +23,15 @@ public class ProfissionalApplicationService implements ProfissionalService {
         profissional.setDescricao(profissionalRequest.descricao());
         profissionalRepository.salva(profissional);
         log.debug("[finish] ProfissionalApplicationService - finalizaCadastro");
+    }
+
+    @Override
+    public ProfissionalResponse obterProfissional(UUID id) {
+        log.info("[start] ProfissionalApplicationService - obterProfissional {}", id);
+        Profissional profissional = buscaProfissional(id);
+        ProfissionalResponse profissionalResponse = new ProfissionalResponse(profissional);
+        log.debug("[finish] ProfissionalApplicationService - obterProfissional");
+        return profissionalResponse;
     }
 
     private Profissional buscaProfissional(UUID id) {

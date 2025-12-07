@@ -1,6 +1,7 @@
 package com.agendou.agendou_api.profissional.application.controller;
 
 import com.agendou.agendou_api.profissional.application.controller.dto.ProfissionalRequest;
+import com.agendou.agendou_api.profissional.application.controller.dto.ProfissionalResponse;
 import com.agendou.agendou_api.profissional.application.service.ProfissionalService;
 import com.agendou.agendou_api.usuario.domain.Usuario;
 import lombok.RequiredArgsConstructor;
@@ -23,5 +24,14 @@ public class ProfissionalController {
         log.info("[start] ProfissionalController - finalizaCadastro");
         profissionalService.finalizaCadastro(user.getId(),profissionalRequest);
         log.debug("[finish] ProfissionalController - finalizaCadastro");
+    }
+
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    ProfissionalResponse obterProfissional(@AuthenticationPrincipal Usuario usuario){
+        log.info("[start] ProfissionalController - obterProfissional {}", usuario.getId());
+        ProfissionalResponse response = profissionalService.obterProfissional(usuario.getId());
+        log.debug("[finish] ProfissionalController - obterProfissional");
+        return response;
     }
 }
