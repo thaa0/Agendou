@@ -10,4 +10,5 @@ import java.util.UUID;
 public interface ProfissionalSpringDataJpaRepository extends JpaRepository<Profissional,UUID> {
     @EntityGraph(attributePaths = {"configuracao", "horarios"})
     Optional<Profissional> findByUsuarioId(UUID id);
+    boolean existsBySlug(String slug);
 }

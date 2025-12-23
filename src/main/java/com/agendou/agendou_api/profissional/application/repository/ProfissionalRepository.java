@@ -7,4 +7,5 @@ import java.util.UUID;
 public interface ProfissionalRepository {
     Profissional salva(Profissional profissional);
     Profissional buscaPorIdUsuario(UUID id);
+    boolean existeSlug(String slug);
 }

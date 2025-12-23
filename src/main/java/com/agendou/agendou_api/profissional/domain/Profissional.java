@@ -26,6 +26,9 @@ public class Profissional{
     @Setter
     private String descricao;
 
+    @Setter
+    private String slug;
+
     @OneToOne(mappedBy = "profissional")
     private ConfiguracaoProfissional configuracao;
 

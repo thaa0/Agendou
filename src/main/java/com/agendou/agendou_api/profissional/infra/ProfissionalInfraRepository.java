@@ -32,4 +32,12 @@ public class ProfissionalInfraRepository implements ProfissionalRepository {
         log.debug("[finish] ProfissionalInfraRepository - buscaPorIdUsuario");
         return profissional;
     }
+
+    @Override
+    public boolean existeSlug(String slug) {
+        log.info("[start] ProfissionalInfraRepository - existeSlug: {}", slug);
+        boolean existe = profissionalSpringDataJpaRepository.existsBySlug(slug);
+        log.debug("[finish] ProfissionalInfraRepository - existeSlug");
+        return existe;
+    }
 }
